@@ -31,7 +31,7 @@ jobs:
           - floatblue-gts.yml
     steps:
       - name: Build Custom Image
-        uses: blue-build/github-action@v1.12
+        uses: blue-build/github-action@v1.13
         env:
           # cosign cannot decrypt SIGNING_SECRET without this, and the failure
           # surfaces as an opaque sign error rather than a missing secret.
