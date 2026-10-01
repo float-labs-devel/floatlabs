@@ -38,10 +38,10 @@ case "$BASE_ID" in
 esac
 
 RELEASE_TYPE="${RELEASE_TYPE:-stable}"
-IMAGE_HOME_URL="${IMAGE_HOME_URL:-https://github.com/floatlabs/floatblue}"
-IMAGE_DOCUMENTATION_URL="${IMAGE_DOCUMENTATION_URL:-https://github.com/floatlabs/floatblue#readme}"
-IMAGE_SUPPORT_URL="${IMAGE_SUPPORT_URL:-https://github.com/floatlabs/floatblue/issues}"
-IMAGE_BUG_REPORT_URL="${IMAGE_BUG_REPORT_URL:-https://github.com/floatlabs/floatblue/issues}"
+IMAGE_HOME_URL="${IMAGE_HOME_URL:-https://github.com/float-labs-devel/floatlabs}"
+IMAGE_DOCUMENTATION_URL="${IMAGE_DOCUMENTATION_URL:-https://github.com/float-labs-devel/floatlabs#readme}"
+IMAGE_SUPPORT_URL="${IMAGE_SUPPORT_URL:-https://github.com/float-labs-devel/floatlabs/issues}"
+IMAGE_BUG_REPORT_URL="${IMAGE_BUG_REPORT_URL:-https://github.com/float-labs-devel/floatlabs/issues}"
 
 VERSION="$RELEASE_TYPE-$BASE_VERSION_ID.$(date -u +%Y%m%d).1"
 

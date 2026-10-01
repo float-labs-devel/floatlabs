@@ -1,7 +1,7 @@
 # run with --cap-add sys_admin --security-opt label=disable
 
-ARG BASE_IMAGE=${BASE_IMAGE:-ghcr.io/floatlabs/floatblue:stable}
-ARG INSTALL_IMAGE_PAYLOAD=${INSTALL_IMAGE_PAYLOAD:-ghcr.io/floatlabs/floatblue:stable}
+ARG BASE_IMAGE=${BASE_IMAGE:-ghcr.io/float-labs-devel/floatlabs:stable}
+ARG INSTALL_IMAGE_PAYLOAD=${INSTALL_IMAGE_PAYLOAD:-ghcr.io/float-labs-devel/floatlabs:stable}
 ARG ISO_LABEL=${ISO_LABEL:-Floatblue-Live}
 
 

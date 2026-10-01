@@ -1,11 +1,11 @@
 /* float labs — static front-end. Lists recent commits from the public GitHub API
-   for the floatlabs/floatblue repo. No secrets, no tracking, no frameworks.
+   for the float-labs-devel/floatlabs repo. No secrets, no tracking, no frameworks.
    All text is inserted via textContent. */
 
 (function () {
   "use strict";
 
-  var REPO = "floatlabs/floatblue";
+  var REPO = "float-labs-devel/floatlabs";
   var API = "https://api.github.com/repos/" + REPO;
 
   function $id(id) { return document.getElementById(id); }

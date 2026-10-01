@@ -18,7 +18,7 @@ echo "Creating an ISO for the $IMAGE_NAME:$IMAGE_TAG image"
 rm -rf ./output
 mkdir ./output
 if ! sudo podman run --rm --privileged --volume ./output:/build-container-installer/build --pull=always \
- ghcr.io/jasonn3/build-container-installer:latest IMAGE_REPO=ghcr.io/floatlabs \
+ ghcr.io/jasonn3/build-container-installer:latest IMAGE_REPO=ghcr.io/float-labs-devel \
  IMAGE_NAME=$IMAGE_NAME \
  IMAGE_TAG=$IMAGE_TAG \
  VARIANT=bluefin ; then

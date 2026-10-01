@@ -1,14 +1,14 @@
 # Floatblue
 
-[![bluebuild build badge](https://github.com/floatlabs/floatblue/actions/workflows/build-daily.yml/badge.svg)](https://github.com/floatlabs/floatblue/actions/workflows/build-daily.yml)
+[![bluebuild build badge](https://github.com/float-labs-devel/floatlabs/actions/workflows/build-daily.yml/badge.svg)](https://github.com/float-labs-devel/floatlabs/actions/workflows/build-daily.yml)
 
-The first image from [Float Labs](https://github.com/floatlabs): GNOME on Bluefin DX,
+The first image from [Float Labs](https://github.com/float-labs-devel): GNOME on Bluefin DX,
 built with [BlueBuild](https://blue-build.org), tracked to Fedora's release cadence,
 hardened but not hostile, and written against a 3 to 4 GB machine rather than against
 a benchmark.
 
 ```sh
-sudo bootc switch ghcr.io/floatlabs/floatblue:stable
+sudo bootc switch ghcr.io/float-labs-devel/floatlabs:stable
 ```
 
 ## What it is
