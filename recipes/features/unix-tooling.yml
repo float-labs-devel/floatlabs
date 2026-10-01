@@ -1,0 +1,36 @@
+
+modules:
+  - type: dnf
+    install:
+      skip-unavailable: true
+      packages:
+        - opendoas
+
+        - ksh
+        - dash
+
+        - vis
+        - ed
+        - mandoc
+        - bc
+
+        - bats
+        - screen
+
+        - ltrace
+        - strace
+        - lsof
+
+        - rsync
+        - gawk
+        - mawk
+        - parallel
+
+        - m4
+        - autoconf
+        - automake
+        - libtool
+
+  - type: script
+    snippets:
+      - "grep -q '^permit persist :wheel' /etc/doas.conf || printf '\\npermit persist :wheel\\n' >> /etc/doas.conf"

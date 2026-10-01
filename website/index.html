@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Float Labs — three Fedora desktops, on Fedora's own clock</title>
+  <meta name="description" content="Float Labs builds Floatblue, Kifloat and CoreFloat: a GNOME, a KDE and a headless Fedora Atomic image, rebuilt on BlueBuild, tracked to Fedora's release cadence, hardened but not hostile, and aimed squarely at hardware that other projects have given up on.">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#23252e">
+  <link rel="icon" href="assets/favicon.png">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src https://api.github.com; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script defer src="assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#three">Skip to the three images</a>
+
+  <div class="topbar">
+    <a class="brand" href="#top">
+      <img src="assets/floatlabs-logo.png" alt="">
+      <span>float labs</span>
+    </a>
+    <nav class="nav">
+      <a href="#position">Position</a>
+      <a href="#three">The three</a>
+      <a href="#cadence">Cadence</a>
+      <a href="#hardware">Hardware</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#contributors">Contributors</a>
+      <a href="https://github.com/floatlabs" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </nav>
+  </div>
+
+  <main id="top">
+    <section class="hero">
+      <img src="assets/floatlabs-logo.png" alt="The Float Labs logo">
+      <h1><span class="box">float</span> <span class="box">labs</span></h1>
+      <p class="hero-desc">
+        <strong>Floatblue</strong> — GNOME on Bluefin DX, rebuilt with
+        <a href="https://blue-build.org" target="_blank" rel="noopener noreferrer">BlueBuild</a>,
+        tracked to <a href="https://fedoraproject.org" target="_blank" rel="noopener noreferrer">Fedora's</a>
+        own release cadence. Hardened, not hostile. Built for the machines everyone else has
+        stopped shipping for. <strong>Kifloat</strong> (KDE on Aurora) and
+        <strong>CoreFloat</strong> (headless on uCore) are on the way, in their own repos.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://github.com/floatlabs/floatblue/releases" target="_blank" rel="noopener noreferrer">Get Floatblue</a>
+        <a class="btn" href="#position">Why this exists</a>
+        <a class="btn" href="https://github.com/floatlabs" target="_blank" rel="noopener noreferrer">The repos</a>
+      </div>
+    </section>
+
+    <section id="position">
+      <div class="section-title"><span>01</span> Position</div>
+      <p class="hero-desc">
+        Float Labs is an answer to a direction, not a competitor to anybody. The honest
+        summary: a lot of people now feel the modern Atomic-desktop scene has swapped
+        <em>shipping something that works</em> for <em>shipping the newest thing that exists</em>,
+        and that it treats old hardware as a rounding error. Both are defensible engineering
+        calls. Neither is the only defensible call, and there is room left for the opposite bet.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <h3>Untested bases are a big bet</h3>
+          <p>Building a daily image on KDE BuildStream, on GNOMEOS nightly, or on the FreeDesktop
+            SDK means shipping whatever landed in that tree this morning. That is a wonderful way
+            to run a demo and a bad way to be somebody's daily driver. We build on the three
+            Fedora-based images that ship a real, staged release: Bluefin, Aurora, uCore.</p>
+        </div>
+        <div class="card">
+          <h3>Driver removal is not "modernity"</h3>
+          <p>Broadcom <code>wl</code>, and a lot of other things that got dropped on the grounds
+            that they are old or unmaintained upstream. For a laptop with a 2013 Broadcom chip that
+            is the difference between a desktop and a network-manager error. Old is not the same
+            as broken, and hardware nobody tests is hardware that still ships to real people.</p>
+        </div>
+        <div class="card">
+          <h3>We keep the Fedora base</h3>
+          <p>No pivot to a non-Fedora toolchain, no private SDK, no build on a nightly. Fedora's
+            own release schedule is the schedule. We bump with Fedora, we soak with Fedora, we
+            inherit Fedora's stability guarantees and we add our own on top.</p>
+        </div>
+        <div class="card">
+          <h3>Hardening that leaves you able to work</h3>
+          <p>sysctls, AIDE, YARA, audit rules, doas, NTS time sync. But sudo stays, Xwayland stays,
+            podman and <code>bootc switch</code> keep working, and no kernel module gets
+            blacklisted that the image itself depends on. Secure and usable, not secure and
+            locked in a cupboard.</p>
+        </div>
+        <div class="card">
+          <h3>Low-end is the design target</h3>
+          <p>3 to 4 GB of RAM, an i5-3550, an iGPU from before Vulkan existed. zram, earlyoom,
+            no file indexer, no shell animations, dirty ratios tuned for a slow disk. This is not
+            a fallback profile. It is the profile everything else is written against.</p>
+        </div>
+        <div class="card">
+          <h3>No money involved</h3>
+          <p>No company, no funding, no sponsors, no paid tiers. This is one person with weaker
+            hardware and a grudge against a design decision, running builds on GitHub Actions.
+            Read <a href="https://github.com/floatlabs/floatblue/blob/main/CONTRIBUTORS.md" target="_blank" rel="noopener noreferrer">CONTRIBUTORS.md</a>:
+            it will stay short.</p>
+        </div>
+      </div>
+      <p class="hint foot">
+        We are not affiliated with Universal Blue, the Fedora Project, Bluefin, Aurora or uCore.
+        We build on their images and we are grateful for them. Where we disagree, we disagree in
+        our own repos.
+      </p>
+    </section>
+
+    <section id="three">
+      <div class="section-title"><span>02</span> The three</div>
+      <p class="hero-desc">
+        Three images, three names, three meanings. Same overlay philosophy, same hardening set,
+        same build system, same Fedora cadence — different desktops for different machines.
+        One of them exists today. The other two are on the way, each in its own repo, because
+        a KDE overlay and a headless one are different work with different upstreams.
+      </p>
+      <div class="grid">
+        <div class="terminal">
+<span class="k">const</span> floatLabs = {<br>
+&nbsp;&nbsp;cadence: <span class="s">"fedora-release"</span>,<br>
+&nbsp;&nbsp;built: <span class="s">"bluebuild"</span>,<br>
+&nbsp;&nbsp;base: <span class="s">"fedora-atomic"</span>,<br>
+&nbsp;&nbsp;images: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ name: <span class="s">"floatblue"</span>, base: <span class="s">"bluefin-dx"</span>, desktop: <span class="s">"gnome"</span>, status: <span class="s">"shipping"</span> },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ name: <span class="s">"kifloat"</span>, base: <span class="s">"aurora"</span>, desktop: <span class="s">"kde-plasma"</span>, status: <span class="s">"planned"</span> },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ name: <span class="s">"corefloat"</span>, base: <span class="s">"ucore"</span>, desktop: <span class="s">"none"</span>, status: <span class="s">"planned"</span> }<br>
+&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;targets: <span class="s">"old, cheap, and still in service"</span><br>
+};<br>
+<span class="c">// three names, one meaning: Fedora, on time</span>
+        </div>
+
+        <div class="card">
+          <h3>Floatblue — shipping</h3>
+          <p><strong>GNOME on Bluefin DX.</strong> Stock GNOME layout, dash to dock and
+            AppIndicator left exactly as Bluefin ships them because that is how people actually
+            work. Flat Remix theming that follows light and dark across GTK3, GTK4, libadwaita,
+            the shell and the icons. This is the flagship, and it is the successor to the
+            personal image that has been running since before this org existed.</p>
+          <p class="hint"><code>ghcr.io/floatlabs/floatblue</code> ·
+            <a href="https://github.com/floatlabs/floatblue" target="_blank" rel="noopener noreferrer">repo</a></p>
+        </div>
+
+        <div class="card">
+          <h3>Kifloat — planned</h3>
+          <p><strong>KDE Plasma on Aurora.</strong> Plasma 6 on Kinoite, because Aurora is the one
+            place KDE-on-Fedora is actually shipped and staged rather than rebuilt from whatever
+            Plasma landed last week. Breeze and the rest of the KDE stack stay as they are. Same
+            zram, same earlyoom, same hardening, same Unix and BSD toolset.</p>
+          <p class="hint">Its own repo, once there is something to put in it.</p>
+        </div>
+
+        <div class="card">
+          <h3>CoreFloat — planned</h3>
+          <p><strong>Headless server on uCore.</strong> No desktop at all: podman, cockpit,
+            the devops pile, the network toolset, hardened sysctls. The same anti-swap settings
+            the desktops get, and the same care about old NICs and old wi-fi chips, because a
+            server on a ten-year-old box is exactly the case nobody demos.</p>
+          <p class="hint">Its own repo, once there is something to put in it.</p>
+        </div>
+
+        <div class="card">
+          <h3>What all three share</h3>
+          <p>zram capped at 2 GB, swappiness raised to 180 because the swap is compressed RAM and
+            reluctance just wastes memory. <code>earlyoom</code> instead of the kernel OOM killer,
+            which picks the biggest process and tells you which one. <code>tracker-miners-fs3</code>,
+            PackageKit, <code>man-db</code> and <code>plocate</code> all off. The foundation is
+            defined once, so the three cannot drift apart.</p>
+        </div>
+
+        <div class="card">
+          <h3>Channels</h3>
+          <p><strong>gts</strong> tracks Fedora's ground-to-shoot, the most conservative.
+            <strong>stable</strong> is the recommended channel: a week of soak before it goes out.
+            <strong>latest</strong> is the daily canary and the first thing that will break.
+            Each carries the Fedora version it was built against, read out of the image itself.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="cadence">
+      <div class="section-title"><span>03</span> Cadence</div>
+      <p class="hero-desc">
+        Fedora ships roughly every six months and announces it a year ahead. We follow that, not
+        the daily-commit treadmill. Base image pins are tied to Fedora releases; the overlay is
+        rebased on top, tested, then promoted from <code>latest</code> to <code>stable</code> after
+        a soak week. Nothing is promoted on a timer alone — if the smoke test fails, the promotion
+        waits.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <h3>On release day</h3>
+          <p>New Fedora version, new base pin, three images rebuilt from scratch on the new
+            toolchain. <code>latest</code> moves, <code>stable</code> does not.</p>
+        </div>
+        <div class="card">
+          <h3>Every day</h3>
+          <p>Overlay commits, rebuilt on <code>latest</code>. This is where breakage is allowed to
+            happen, and where the feedback comes from.</p>
+        </div>
+        <div class="card">
+          <h3>Every week</h3>
+          <p>Soak results reviewed, fixes folded back, <code>latest</code> promoted to
+            <code>stable</code>. ISOs built and published as a release, with checksums.</p>
+        </div>
+        <div class="card">
+          <h3>Every release</h3>
+          <p>Full rebase across all three images, notes written, old release tagged and archived
+            so you can <code>bootc switch</code> back.</p>
+        </div>
+      </div>
+      <p class="hint foot">
+        Cosign signing on every image, <code>CHECKSUM</code> files on every ISO, and Secure Boot
+        keys you can enrol or ignore.
+      </p>
+    </section>
+
+    <section id="hardware">
+      <div class="section-title"><span>04</span> Hardware</div>
+      <p class="hero-desc">
+        This is the section that explains the whole project. The target is a 3 to 4 GB machine
+        with a Sandy Bridge i5 and an iGPU from before Vulkan existed. Every decision above is a
+        consequence of those two facts.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <h3>No Vulkan, on purpose</h3>
+          <p>A pre-Haswell iGPU has no Vulkan driver in Mesa. Anything built around it either
+            refuses to start or falls back to software Vulkan and ends up slower than the OpenGL
+            path it replaced. Gamescope and MangoHud are absent for Floatblue. On a Haswell-or-newer
+            GPU, install both — that is the one place performance is deliberately left on the table.</p>
+        </div>
+        <div class="card">
+          <h3>Broadcom and friends stay</h3>
+          <p>Where the RPM exists in Fedora, we keep it and we test it. Old, unmaintained
+            upstream, and the only thing that will ever drive that chip — which is precisely why
+            it needs someone still building it.</p>
+        </div>
+        <div class="card">
+          <h3>Disk gets treated gently</h3>
+          <p>Laptop mode, and smaller dirty ratios so writeback happens sooner and in smaller
+            bursts. An older disk should never be asked to absorb a large buffer and stall while
+            it does.</p>
+        </div>
+        <div class="card">
+          <h3>Games have documented trade-offs</h3>
+          <p>GameMode runs on demand and puts the governor back when the game exits. Two sysctls
+            from the hardening set genuinely block games, and the gaming profile relaxes both:
+            <code>io_uring</code> from 2 to 1 (permission check, not removal — Proton needs it) and
+            <code>mmap_rnd_bits</code> from 32 back to 28 (DXVK's large reservations fail at 32).
+            kexec, BPF, userfaultfd and ASLR itself are never touched.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap">
+      <div class="section-title"><span>05</span> Roadmap</div>
+      <div class="grid">
+        <div class="card">
+          <h3>Done</h3>
+          <p>Floatblue as a hardened Bluefin DX overlay, with the low-end profile, the Unix and
+            BSD toolset, doas alongside sudo, Flat Remix theming, blue-team detection tooling,
+            ISOs and a working installer. It has been in daily use, which is the only test that
+            counts.</p>
+        </div>
+        <div class="card">
+          <h3>Next</h3>
+          <p>Splitting the shared foundation out so Kifloat and CoreFloat can compose it instead of
+            forking it, each in its own repo. Then Kifloat on Aurora, bringing the whole Floatblue
+            overlay to Plasma, and CoreFloat on uCore for the headless case.</p>
+        </div>
+        <div class="card">
+          <h3>Then</h3>
+          <p>A hardware compatibility matrix with real machine reports — that is the piece that
+            turns "we kept the Broadcom driver" into something a stranger can check. Per-image
+            bootstrap and upgrade guides. Software we build ourselves, where nothing upstream
+            exists and the gap is worth filling.</p>
+        </div>
+        <div class="card">
+          <h3>Never</h3>
+          <p>Money. Tiers, sponsors, a company, telemetry, or a "professional" edition that is
+            the same thing with a support SLA attached. BlueBuild on stock Fedora bases, tracked
+            to Fedora's own releases.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contributors">
+      <div class="section-title"><span>06</span> People</div>
+      <p class="hero-desc">
+        One maintainer today. This is not a foundation and it is not looking for a board. If you
+        have a machine that other images have given up on and it works, or does not, that report is
+        worth more than a patch and it is the thing we are short of.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <h3>floatingskies</h3>
+          <p>Maintainer. The i5-3550 under the desk, the builds, the recipes, the arguing. Started
+            this because the machine had to keep working and the images it used to run on kept
+            moving.</p>
+        </div>
+        <div class="card">
+          <h3>You</h3>
+          <p>Hardware reports, fixes, disagreement. Everything is in the open under a
+            <a href="https://github.com/floatlabs/floatblue/blob/main/CONTRIBUTORS.md" target="_blank" rel="noopener noreferrer">CONTRIBUTORS.md</a>
+            that is updated honestly, including when it is only one line.</p>
+        </div>
+      </div>
+      <ul class="commits" id="commits" aria-live="polite">
+        <li class="hint">Loading commits…</li>
+      </ul>
+      <p class="foot hint">
+        <a href="https://github.com/floatlabs/floatblue/commits/main" target="_blank" rel="noopener noreferrer">Full changelog on GitHub</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built by hand, one commit at a time. No tracking, no cookies, no frameworks, no money.</p>
+    <p class="hint">
+      An independent volunteer project. Not affiliated with Universal Blue, the Fedora Project,
+      Bluefin, Aurora or uCore.
+    </p>
+  </footer>
+</body>
+</html>

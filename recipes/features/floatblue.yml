@@ -1,0 +1,26 @@
+# Floatblue — GNOME on Bluefin DX. This is the whole overlay, composed from the
+# shared foundation plus the GNOME desktop layer.
+#
+# Stock GNOME layout: dash to dock and AppIndicator come from the base and are
+# left alone, because that is how the machine actually gets used. Only the skin
+# moves.
+
+modules:
+  - from-file: shared-foundation.yml
+
+  # --- desktop layer, GNOME only ---
+  - from-file: gnome/theming.yml
+  - from-file: gnome/wallpapers.yml
+  - from-file: gnome/gaming.yml
+  - from-file: gnome/branding.yml
+  - from-file: gnome/ui-fixes.yml
+  - from-file: gnome/ublue-overrides.yml
+  - from-file: gnome/ublue-base-overrides.yml
+
+  # --- extras worth having on a workstation ---
+  - from-file: creative.yml
+  - from-file: steam.yml
+  - from-file: virtualization.yml
+  - from-file: docker.yml
+  - from-file: brew.yml
+  - from-file: application-extra.yml

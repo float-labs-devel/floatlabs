@@ -1,0 +1,15 @@
+[Unit]
+Description=Float: follow the GNOME light/dark preference across GTK, libadwaita, shell and icons
+Documentation=man:gsettings(1)
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/float-theme-sync
+Restart=always
+RestartSec=5
+TimeoutStopSec=10
+
+[Install]
+WantedBy=default.target

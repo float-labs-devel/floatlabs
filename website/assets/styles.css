@@ -1,0 +1,352 @@
+/* float labs — brutalist, one stylesheet, no animation.
+   Derived from the floatblue website stylesheet. Shapes are the same; the palette
+   is the Flat Remix GTK-Blue Dark the desktops actually ship: #23252e window,
+   #1a1c23 headerbar, 5% white cards, #2777ff accent. */
+:root {
+  --bg: #23252e;
+  --surface: #1a1c23;
+  --card: rgba(255, 255, 255, 0.05);
+  --fg: #ffffff;
+  --muted: #a7acba;
+  --accent: #2777ff;
+  --border: 2px solid rgba(255, 255, 255, 0.16);
+  --shadow: 4px 4px 0 #12141a;
+  --mono: ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
+  --display: system-ui, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--mono);
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+  border-top: 2px solid rgba(255, 255, 255, 0.16);
+}
+
+a {
+  color: var(--accent);
+}
+
+strong {
+  color: var(--fg);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--display);
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* ---- top bar ---- */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.5rem;
+  background: var(--surface);
+  border-bottom: var(--border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.brand img {
+  width: 34px;
+  height: 34px;
+  border: var(--border);
+  border-radius: 6px;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.nav a {
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: var(--fg);
+}
+
+/* ---- hero ---- */
+
+.hero {
+  padding: 5rem 1.5rem 4rem;
+  border-bottom: var(--border);
+}
+
+.hero img {
+  width: 96px;
+  height: 96px;
+  border: var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 9vw, 4.6rem);
+  text-transform: uppercase;
+  margin: 1.2rem 0 1rem;
+}
+
+.box {
+  display: inline-block;
+  padding: 0 0.5rem;
+  background: var(--bg);
+  border: var(--border);
+  box-shadow: var(--shadow);
+}
+
+.hero-desc {
+  max-width: 44rem;
+  margin: 1.5rem 0 2rem;
+  padding-left: 1rem;
+  border-left: 4px solid var(--accent);
+  color: var(--muted);
+}
+
+.hero-desc em {
+  color: var(--fg);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.card p + p {
+  margin-top: 0.6rem;
+}
+
+/* ---- sections ---- */
+
+section {
+  padding: 3rem 1.5rem;
+  border-bottom: var(--border);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.4rem;
+  margin-bottom: 1.8rem;
+}
+
+.section-title span {
+  background: var(--accent);
+  color: #ffffff;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  padding: 0.15rem 0.5rem;
+  border: var(--border);
+}
+
+.grid {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+}
+
+.card {
+  background: var(--card);
+  border: var(--border);
+  box-shadow: var(--shadow);
+  padding: 1.2rem;
+}
+
+.card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.terminal {
+  background: #12141a;
+  border: var(--border);
+  box-shadow: var(--shadow);
+  padding: 1.2rem;
+  font-size: 0.85rem;
+  overflow-x: auto;
+}
+
+.k {
+  color: #c678dd;
+}
+
+.s {
+  color: #98c379;
+}
+
+.c {
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ---- controls ---- */
+
+.btn {
+  display: inline-block;
+  font-family: var(--display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.7rem 1.3rem;
+  background: var(--card);
+  color: var(--fg);
+  border: var(--border);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--surface);
+}
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #1a68e6;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1.6rem;
+}
+
+/* ---- lists, code, commits ---- */
+
+pre {
+  background: var(--surface);
+  border: var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  margin: 0.8rem 0;
+}
+
+code {
+  font-family: var(--mono);
+  background: var(--surface);
+  padding: 0.1em 0.35em;
+  font-size: 0.9em;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+.commits {
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.commits li {
+  display: flex;
+  gap: 0.7rem;
+  align-items: baseline;
+  border-left: 4px solid var(--accent);
+  padding-left: 0.7rem;
+  font-size: 0.9rem;
+}
+
+.commit-sha {
+  color: var(--muted);
+  flex: none;
+}
+
+.commit-msg {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hint {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.foot {
+  margin-top: 1.4rem;
+}
+
+/* ---- footer ---- */
+
+footer {
+  padding: 2.5rem 1.5rem 3.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+footer p {
+  margin: 0.3rem 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 2;
+  background: var(--accent);
+  color: #ffffff;
+  padding: 0.5rem 0.8rem;
+  border: var(--border);
+}
+
+@media (max-width: 640px) {
+  .nav a {
+    display: none;
+  }
+
+  .hero {
+    padding: 3rem 1.25rem;
+  }
+}

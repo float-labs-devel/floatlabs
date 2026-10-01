@@ -1,0 +1,32 @@
+modules:
+  - type: dnf
+    install:
+      packages:
+        - ansible-core
+        - gh
+        - git-lfs
+        - jq
+        - shellcheck
+        - sshpass
+        - bind-utils
+        - htop
+        - iotop
+        - iperf3
+        - mtr
+        - ncdu
+        - net-tools
+        - sysstat
+        - tmux
+        - tree
+        - whois
+        - wget
+        - btop
+        - chafa
+        - ImageMagick-libs
+        - fd-find
+        - fzf
+        - pv
+        - ripgrep
+        - nodejs
+        - npm
+        - python3-pip

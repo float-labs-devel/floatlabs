@@ -1,0 +1,32 @@
+
+modules:
+  - type: dnf
+    repos:
+      nonfree: negativo17
+    install:
+      packages:
+        - ffmpegthumbnailer
+        - mediainfo
+        - gstreamer1-libav
+        - gstreamer1-plugins-bad
+        - gstreamer1-plugins-ugly
+    replace:
+      - from-repo: fedora-multimedia
+        skip-unavailable: true
+        packages:
+          - old: ffmpeg-free
+            new: ffmpeg
+          - old: libavcodec-free
+            new: libavcodec
+          - old: libavdevice-free
+            new: libavdevice
+          - old: libavfilter-free
+            new: libavfilter
+          - old: libavformat-free
+            new: libavformat
+          - old: libavutil-free
+            new: libavutil
+          - old: libswresample-free
+            new: libswresample
+          - old: libswscale-free
+            new: libswscale

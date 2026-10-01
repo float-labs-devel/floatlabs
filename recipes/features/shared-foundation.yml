@@ -1,0 +1,27 @@
+# Everything every Float Labs image gets.
+
+# This module is the reason there is one org and three images: the overlay is
+# defined once here and composed into floatblue, kifloat and corefloat, so the
+# three cannot quietly drift apart.
+
+modules:
+  # --- the base layer: no desktop, no vendor assumptions ---
+  - from-file: system-files.yml
+  - from-file: application-rpms.yml
+  - from-file: fonts.yml
+
+  # --- the profile the whole project is written against ---
+  - from-file: hardening.yml
+  - from-file: low-end.yml        # 3 to 4 GB target, no Vulkan anywhere
+  - from-file: blue-team.yml       # detection side of the hardening
+
+  # --- the pile of tools people expect and Fedora does not default to ---
+  - from-file: unix-tooling.yml
+  - from-file: developer.yml       # debuggers, formatters, containers
+  - from-file: devops.yml
+  - from-file: networking.yml
+
+  # --- services and codecs ---
+  - from-file: flatpak.yml
+  - from-file: codecs.yml
+  - from-file: cockpit.yml

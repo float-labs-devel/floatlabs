@@ -1,0 +1,16 @@
+modules: 
+  - type: dnf
+    repos:
+      files:
+        - docker-ce.repo
+    install:
+      packages:
+        - docker-ce 
+        - docker-ce-cli
+        - docker-buildx-plugin
+        - docker-compose-plugin
+  - type: systemd
+    system:
+      disable:
+      - docker.service
+      - docker.socket

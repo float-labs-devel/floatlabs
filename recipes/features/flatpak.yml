@@ -1,0 +1,6 @@
+
+modules:
+  - type: systemd
+    system:
+      enabled:
+        - float-flatpak-remote.service

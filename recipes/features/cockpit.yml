@@ -1,0 +1,15 @@
+
+modules:
+  - type: dnf
+    install:
+      skip-unavailable: true
+      packages:
+        - cockpit-machines
+        - cockpit-networkmanager
+        - cockpit-ostree
+        - cockpit-bridge
+        - cockpit-podman
+        - cockpit-selinux
+        - cockpit-storaged
+        - cockpit-system
+        - cockpit-files

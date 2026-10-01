@@ -1,0 +1,16 @@
+name: floatblue
+description: >-
+  Floatblue — GNOME on Bluefin DX, built on Fedora's ground-to-shoot. The most
+  conservative channel: what Fedora considers settled.
+
+alt-tags:
+  - gts
+
+base-image: ghcr.io/ublue-os/bluefin-dx
+image-version: gts
+
+modules:
+  - from-file: features/floatblue.yml
+  - type: gschema-overrides
+    include:
+      - zz42-float.gschema.override

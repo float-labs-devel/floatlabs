@@ -1,0 +1,18 @@
+name: floatblue
+description: >-
+  Floatblue — GNOME on Bluefin DX. Hardened, low-end aware, and tracked to
+  Fedora's release cadence. This channel follows Bluefin's stable-weekly image:
+  a week of soak first.
+
+alt-tags:
+  - stable
+  - stable-weekly
+
+base-image: ghcr.io/ublue-os/bluefin-dx
+image-version: stable
+
+modules:
+  - from-file: features/floatblue.yml
+  - type: gschema-overrides
+    include:
+      - zz42-float.gschema.override

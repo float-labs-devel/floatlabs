@@ -1,0 +1,17 @@
+# run with --cap-add sys_admin --security-opt label=disable
+
+ARG BASE_IMAGE=${BASE_IMAGE:-ghcr.io/floatlabs/floatblue:stable}
+ARG INSTALL_IMAGE_PAYLOAD=${INSTALL_IMAGE_PAYLOAD:-ghcr.io/floatlabs/floatblue:stable}
+ARG ISO_LABEL=${ISO_LABEL:-Floatblue-Live}
+
+
+FROM $BASE_IMAGE
+ARG BASE_IMAGE
+ARG INSTALL_IMAGE_PAYLOAD
+ARG ISO_LABEL
+RUN --mount=type=bind,source=./.,target=/src \
+    env \
+    BASE_IMAGE="$BASE_IMAGE" \
+    INSTALL_IMAGE_PAYLOAD="$INSTALL_IMAGE_PAYLOAD" \
+    ISO_LABEL="$ISO_LABEL" \
+    /src/build.sh

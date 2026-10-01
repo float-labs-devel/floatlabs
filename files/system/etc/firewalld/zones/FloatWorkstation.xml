@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<zone>
+  <short>Float Workstation</short>
+  <description>Desktop zone: firewalld's default workstation services, no added ports</description>
+</zone>

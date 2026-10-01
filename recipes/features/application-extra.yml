@@ -1,0 +1,6 @@
+# The applications people expect to find and an Atomic base does not install by
+# default. Kept in one place so all three workstation images agree on what
+# "batteries included" means.
+
+modules:
+  - from-file: vscode.yml

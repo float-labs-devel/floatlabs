@@ -1,0 +1,11 @@
+modules: 
+  - type: dnf
+    repos:
+      copr:
+        - ublue-os/packages
+    install:
+      packages:
+        - libvirt
+        - libvirt-nss
+        - ublue-os-libvirt-workarounds
+        - virt-manager

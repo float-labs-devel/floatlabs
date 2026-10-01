@@ -1,0 +1,10 @@
+modules:
+  - type: signing
+  - type: files
+    files:
+      - source: system
+        destination: /
+  - type: script
+    scripts:
+      - set-os-release.sh
+      - disable-ublue-motd.sh

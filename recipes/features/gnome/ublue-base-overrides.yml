@@ -1,0 +1,11 @@
+modules:
+- type: systemd
+  system:
+    disable:
+    - tailscaled
+    - docker.service
+    - docker.socket
+
+- type: script
+  snippets:
+  - "sed -i '/starship init bash/d' /etc/bashrc"

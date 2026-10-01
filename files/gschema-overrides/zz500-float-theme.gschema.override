@@ -1,0 +1,7 @@
+
+[org.gnome.desktop.interface]
+gtk-theme='Flat-Remix-GTK-Blue-Light'
+icon-theme='Flat-Remix-Blue-Light'
+color-scheme='default'
+cursor-theme='Adwaita'
+cursor-size=24

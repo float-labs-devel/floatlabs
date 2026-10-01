@@ -1,0 +1,14 @@
+[Unit]
+Description=Ensure the Flathub remote is configured
+Documentation=https://docs.flatpak.org/en/latest/flatpak-command-remote-add.html
+After=flatpak.service
+Before=display-manager.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/float-ensure-flathub
+TimeoutStartSec=60
+
+[Install]
+WantedBy=multi-user.target

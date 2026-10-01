@@ -1,0 +1,38 @@
+modules:
+- type: files
+  files:
+    - source: dconf-ublue
+      destination: /etc/dconf/db/distro.d
+- type: dnf
+  repos:
+    copr:
+      - ublue-os/staging
+      - ublue-os/packages
+  install:
+    packages:
+      - gnome-shell-extension-logo-menu
+      - ublue-polkit-rules
+      - ublue-os-signing
+      - ublue-brew
+      - ublue-setup-services  
+      - setools-console
+      - lm_sensors
+      - firewall-config
+      - uupd
+      - bcache-tools
+      - git-credential-libsecret
+      - openssh-askpass
+      - rclone
+      - restic
+      - powertop
+      - waypipe
+  remove:
+    packages:
+      - gnome-software
+- type: systemd
+  system:
+    enabled:
+      - uupd.timer
+    disabled:
+      - rpm-ostreed-automatic.timer
+      - flatpak-system-update.timer

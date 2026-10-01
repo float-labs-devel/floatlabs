@@ -1,0 +1,26 @@
+
+modules:
+  - type: dnf
+    install:
+      packages:
+        - chrony
+        - usbguard
+        - firewalld
+        - firewall-config
+
+  - type: systemd
+    system:
+      enabled:
+        - firewalld.service
+        - chronyd.service
+      masked:
+        - geoclue.service
+        - passim.service
+      disabled:
+        - cups.service
+        - cups-browsed.service
+        - bluetooth.service
+
+  - type: script
+    scripts:
+      - apply-hardening.sh

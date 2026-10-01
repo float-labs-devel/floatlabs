@@ -1,0 +1,16 @@
+
+modules:
+  - type: dnf
+    repos:
+      copr:
+        - ublue-os/packages
+    install:
+      packages:
+        - ublue-brew
+
+  - type: systemd
+    system:
+      enabled:
+        - brew-setup.service
+        - brew-update.timer
+        - brew-upgrade.timer
