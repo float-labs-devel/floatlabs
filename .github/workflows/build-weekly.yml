@@ -32,6 +32,10 @@ jobs:
     steps:
       - name: Build Custom Image
         uses: blue-build/github-action@v1.12
+        env:
+          # cosign cannot decrypt SIGNING_SECRET without this, and the failure
+          # surfaces as an opaque sign error rather than a missing secret.
+          COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
         with:
           recipe: ${{ matrix.recipe }}
           cosign_private_key: ${{ secrets.SIGNING_SECRET }}

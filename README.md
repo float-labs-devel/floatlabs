@@ -135,6 +135,22 @@ bluebuild build --build-driver=podman recipes/floatblue-stable.yml
 
 Builds run on GitHub Actions daily (`latest`) and weekly (`stable`, `gts`).
 
+## Verifying a download
+
+Every image is signed with cosign. The public key is committed here as `cosign.pub`, so you
+do not have to take the key from the same place as the image to check it:
+
+```sh
+cosign verify \
+  --key cosign.pub \
+  ghcr.io/float-labs-devel/floatlabs:stable
+```
+
+Do that against the `cosign.pub` in this repository, not against one copied from a download
+page. That is the whole point of it.
+
+ISOs ship a `-CHECKSUM` file with a SHA-256 next to them.
+
 ## Layout
 
 ```
